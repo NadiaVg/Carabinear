@@ -1,0 +1,28 @@
+<ion-card>
+  <ion-card-title align="center">
+      {{ title }}
+  </ion-card-title>
+  <ion-card-content>
+      <div>
+        <h2 class="dark"> Nombre </h2>
+          <ion-item>
+              <ion-input name="name" type="name" placeholder="name" ngModel required></ion-input>
+          </ion-item>
+          <h2 class="dark"> Email </h2>
+          <ion-item>
+              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+          </ion-item>
+          <h2 class="dark"> Contraseña </h2>
+          <ion-item>
+              <ion-input name="password" type="password" placeholder="password" ngModel required></ion-input>
+          </ion-item>
+      </div>
+      <br>
+      <div align="center">
+          <app-button routerLink="/home" title="Registrarse"></app-button>
+      </div>
+
+      
+  </ion-card-content>
+
+</ion-card>
