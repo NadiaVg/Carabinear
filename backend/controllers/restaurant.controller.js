@@ -5,8 +5,8 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Restaurant
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.name || !req.body.category || !req.body.direction || !req.body.codigoPostal){
-    return res.status(400).send({
+  if (!req.body.name || !req.body.direction || !req.body.CP || !req.body.category){
+    res.status(400).send({
       message: "Content cannot be empty!"
     });
   }
@@ -14,17 +14,17 @@ exports.create = (req, res) => {
   // Create a Restaurant
   const restaurant = {
     name: req.body.name,
-    category: req.body.category,
     direction: req.body.direction,
-    codigoPostal: req.body.codigoPostal,
+    CP: req.body.CP,
+    category: req.body.category,
     filename: req.file ? req.file.filename : ""
   }
 
   // Save Restaurant in the database
   Restaurant.create(restaurant).then(data => {
-    return res.send(data);
+    res.send(data);
   }).catch(err => {
-    return res.status(500).send({
+    res.status(500).send({
       message: err.message || "Some error occurred while creating the restaurant"
     })
   });
@@ -33,10 +33,10 @@ exports.create = (req, res) => {
 // Retrieve all Restaurants from the database.
 exports.findAll = (req, res) => {
   Restaurant.findAll().then(data => {
-      res.send(data);
+    res.send(data);
   }).catch(err => {
-      res.status(500).send({
-      message: err.message || "Some error occurred while retrieving the restaurant"
+    res.status(500).send({
+      message: err.message || "Some error occurred while retrieving all Restaurants"
     })
   })
 };
@@ -49,28 +49,28 @@ exports.findOne = (req, res) => {
   Restaurant.findByPk(id)
     .then(data => {
       if (data) {
-        return res.send(data);
+        res.send(data);
       } else {
-        return res.status(404).send({
+        res.status(404).send({
           message: `Cannot find Restaurant with id=${id}.`
         });
       }
     })
     .catch(err => {
-      return res.status(500).send({
+      res.status(500).send({
         message: "Error retrieving Restaurant with id=" + id
       });
     });
 };
 
 
-// UPdate
+// Update
 
 exports.update = (req, res) => {
 
   const id = req.params.id;
-  if (!req.body.name || !req.body.category || !req.body.direction || !req.body.codigoPostal){
-    return res.status(400).send({
+  if (!req.body.name || !req.body.direction || !req.body.CP || !req.body.category){
+    res.status(400).send({
       message: "Content cannot be empty!"
     });
   }
@@ -78,10 +78,10 @@ exports.update = (req, res) => {
   // Create a Restaurant
   const restaurant = {
     name: req.body.name,
-    category: req.body.category,
     direction: req.body.direction,
-    codigoPostal: req.body.codigoPostal,
-    filename: req.file
+    CP: req.body.CP,
+    category: req.body.category,
+    filename: req.file ? req.file.filename : ""
   }
 
   Restaurant.update(restaurant, {
@@ -89,17 +89,17 @@ exports.update = (req, res) => {
   })
     .then(num => {
       if (num == 1) {
-        return res.send({
+        res.send({
           message: "Restaurant was updated successfully."
         });
       } else {
-        return res.send({
+        res.send({
           message: `Cannot update Restaurant with id=${id}. Maybe Restaurant was not found!`
         });
       }
     })
     .catch(err => {
-      return res.status(500).send({
+      res.status(500).send({
         message: "Error updating Restaurant with id=" + id
       });
     });
@@ -115,17 +115,17 @@ exports.delete = (req, res) => {
   })
     .then(num => {
       if (num == 1) {
-        return res.send({
+        res.send({
           message: "Restaurant was deleted successfully!"
         });
       } else {
-        return res.send({
+        res.send({
           message: `Cannot delete Restaurant with id=${id}. Maybe Restaurant was not found!`
         });
       }
     })
     .catch(err => {
-      return res.status(500).send({
+      res.status(500).send({
         message: "Could not delete Restaurant with id=" + id
       });
     });

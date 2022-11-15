@@ -5,6 +5,7 @@ var path = require('path');
 
 const app = express();
 
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 var corsOptions = {
@@ -19,29 +20,13 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./models");
 
-const main = async () => {
-  try {
-    const users = await db.User.findAll({
-      include: [{
-        model: db.Restaurant,
-        as: 'restaurants',
-        attributer: { exclude: [ 'createdAt', 'updatedAt'] },
-        through: { attributes: [] },
-      }],
-    });
-    console.log(JSON.stringify(users));
-    app.get("/", (req, res) => {
-      res.json(JSON.stringify(users));
-      });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-main();
-
 db.sequelize.sync();
 
+
+
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to Carabinear application."});
+});
 
 require("./routes/restaurant.routes")(app);
 

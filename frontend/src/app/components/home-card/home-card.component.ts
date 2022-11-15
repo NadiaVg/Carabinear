@@ -10,7 +10,7 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 export class HomeCardComponent implements OnInit {
 
 
-  restaurant: any[] = [];
+  restaurant: any = [];
 
   constructor(private restaurantService: RestaurantService) { 
 
