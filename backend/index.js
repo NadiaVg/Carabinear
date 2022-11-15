@@ -6,6 +6,7 @@ var path = require('path');
 const app = express();
 
 
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 var corsOptions = {
@@ -24,9 +25,6 @@ db.sequelize.sync();
 
 
 
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Carabinear application."});
-});
 
 require("./routes/restaurant.routes")(app);
 
