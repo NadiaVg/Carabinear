@@ -3,6 +3,6 @@ export interface User {
     name: string;
     email: string;
     password: string;
-    codigoPostal: number;
-    rol: string;
+    CP: number;
+    admin: boolean;
 }

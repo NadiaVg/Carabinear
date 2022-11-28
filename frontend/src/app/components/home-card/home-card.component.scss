@@ -1,7 +1,7 @@
 .face{
     width: 5em;
     height: 5em;
-    margin-top: 5em;
+    margin-top: 2em;
 }
 .happy{
     margin-right: 5em;
@@ -13,7 +13,7 @@
 }
 ion-card{
     height: 42em;
-    background: rgba(222, 199, 209, 0.5);
+    background: rgba(206, 199, 222, 0.5);
     margin-top: 3em;
     
 }
@@ -40,11 +40,16 @@ ion-card{
     left: -26px;
 }
 
+.image{
+    width: 17em;
+    height: 17em;
+}
+
 ion-card-title{
     font-size: 2.5em;
     color: rgba(50, 10, 40, 1);
 }
 ion-card-subtitle{
     font-size: 1.2em; 
-    margin-top: 20%;
+    margin-top: 10%;
 }

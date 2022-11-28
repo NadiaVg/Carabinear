@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-card',
@@ -7,7 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LoginCardComponent implements OnInit {
 
-  constructor() {
+  constructor(
+ 
+  ) {
     this.title = '';
    }
    @Input() title: string;

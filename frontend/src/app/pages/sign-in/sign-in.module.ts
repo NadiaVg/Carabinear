@@ -11,20 +11,18 @@ import { SignInCardComponent } from 'src/app/components/sign-in-card/sign-in-car
 import { ButtonComponent } from 'src/app/components/button/button.component';
 import { ContactComponent } from 'src/app/components/contact/contact.component';
 import { LogoFooterComponent } from 'src/app/components/logo-footer/logo-footer.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SignInPageRoutingModule
+    SignInPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [
-    SignInPage,
-    SignInCardComponent,
-    ButtonComponent,
-    ContactComponent,
-    LogoFooterComponent
+    SignInPage
   ]
 })
 export class SignInPageModule {}

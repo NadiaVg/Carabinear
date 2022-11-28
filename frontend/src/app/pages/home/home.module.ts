@@ -9,6 +9,7 @@ import { MenuComponent } from '../../components/menu/menu.component';
 import { HomeCardComponent } from 'src/app/components/home-card/home-card.component';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { ContactComponent } from 'src/app/components/contact/contact.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 
 @NgModule({
@@ -17,13 +18,11 @@ import { ContactComponent } from 'src/app/components/contact/contact.component';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ComponentsModule
   ],
   declarations: [
-    HomePage,
-    MenuComponent,
-    HomeCardComponent,
-    ContactComponent
+    HomePage
 ]
 })
 export class HomePageModule {}

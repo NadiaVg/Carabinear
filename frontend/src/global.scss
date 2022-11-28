@@ -25,12 +25,37 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-.dark{
+.dark {
     color: rgba(18, 18, 18, 1);
 }
-ion-card-title{
+
+ion-card-title {
     font-size: 2em;
     color: rgba(50, 10, 40, 1);
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+.customErrorAlert {
+    --backdrop-opacity: 0.7;
+    --background: rgba(206, 199, 222, 1) !important;
+
+
+}
+
+button.alert-button.alertButton {
+    color: rgba(61, 32, 122, 1) !important;
+}
+
+button.alert-button.deleteButton {
+    color: red !important;
+}
+
+ion-alert.customOkAlert {
+    --backdrop-opacity: 0.7;
+    --background: rgba(206, 199, 222, 1) !important;
+}
+
+ion-input.input {
+    border-radius: 10px;
 }

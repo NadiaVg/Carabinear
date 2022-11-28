@@ -13,6 +13,7 @@ import { LoginCardComponent } from 'src/app/components/login-card/login-card.com
 import { ButtonComponent } from 'src/app/components/button/button.component';
 import { ContactComponent } from 'src/app/components/contact/contact.component';
 import { LogoFooterComponent } from 'src/app/components/logo-footer/logo-footer.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -20,14 +21,11 @@ import { LogoFooterComponent } from 'src/app/components/logo-footer/logo-footer.
     FormsModule,
     IonicModule,
     Login1PageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ComponentsModule
   ],
   declarations: [
-    Login1Page,
-    LoginCardComponent,
-    ButtonComponent,
-    ContactComponent,
-    LogoFooterComponent
+    Login1Page
   ]
 })
 export class Login1PageModule {}

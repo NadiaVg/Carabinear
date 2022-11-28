@@ -18,7 +18,7 @@ export class HomeCardComponent implements OnInit {
 
   }
 getRestaurant(){
-      this.restaurantService.getOneRestaurant(1).subscribe(data =>{
+      this.restaurantService.getOneRestaurant(10).subscribe(data =>{
         this.restaurant.push(data);
         console.log(this.restaurant)
       })

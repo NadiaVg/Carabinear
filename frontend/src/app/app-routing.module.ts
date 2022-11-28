@@ -26,6 +26,18 @@ const routes: Routes = [
   {
     path: 'questions',
     loadChildren: () => import('./pages/questions/questions.module').then( m => m.QuestionsPageModule)
+  },
+  {
+    path: 'admin-list',
+    loadChildren: () => import('./admin-pages/admin-list/admin-list.module').then( m => m.AdminListPageModule)
+  },
+  {
+    path: 'add-restaurant',
+    loadChildren: () => import('./admin-pages/add-restaurant/add-restaurant.module').then( m => m.AddRestaurantPageModule)
+  },
+  {
+    path: 'update-restaurant/:id',
+    loadChildren: () => import('./admin-pages/update-restaurant/update-restaurant.module').then( m => m.UpdateRestaurantPageModule)
   }
 ];
 

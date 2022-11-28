@@ -40,7 +40,7 @@ export class RestaurantService {
     let formData = new FormData();
     formData.append("name", restaurant.name);
     formData.append("direction", restaurant.direction);
-    formData.append("codigoPostal", restaurant.codigoPostal);
+    formData.append("CP", restaurant.CP);
     formData.append("category", restaurant.category);
     formData.append("file", blob);
 
@@ -60,7 +60,7 @@ export class RestaurantService {
 
     data.append("name", restaurant.name);
     data.append("direction", restaurant.direction);
-    data.append("codigoPostal", restaurant.codigoPostal);
+    data.append("CP", restaurant.CP);
     data.append("category", restaurant.category);
     data.append("file", blob);
 

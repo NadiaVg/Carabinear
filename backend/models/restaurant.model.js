@@ -12,10 +12,23 @@ module.exports = (sequelize, Sequelize) => {
     category: {
       type: Sequelize.STRING
     },
+    likes: {
+      type: Sequelize.INTEGER
+    },
+    dislikes: {
+      type: Sequelize.INTEGER
+    },
     filename: {
       type: Sequelize.STRING
     }
-  });
+  }, {});
+  Restaurant.associate = function (models) {
+    Restaurant.belongToMany(models.User, {
+      through: 'Valoration',
+      as: 'users',
+      foreignKey: 'RestaurantId',
+    })
+  }
 
   return Restaurant;
 }
