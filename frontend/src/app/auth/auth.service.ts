@@ -12,7 +12,7 @@ import { Storage } from '@ionic/storage';
 })
 export class AuthService {
 
-  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:4000';
+  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:8080';
 
   constructor(private  httpClient:  HttpClient, private  storage:  Storage) { }
 
@@ -26,7 +26,7 @@ export class AuthService {
         'Authorization' : basicAccess,
         'Content-Type' : 'application/x-www-form-urlencoded',
       }
-      //, withCredentials: true
+      , withCredentials: true
     };
 
     return options;
@@ -51,7 +51,7 @@ export class AuthService {
 
         if (res.user) {
           await this.storage.set("token", res.access_token);
-          // await this.storage.set("idUser", res.user.id);
+          await this.storage.set("idUser", res.user.id);
         }
       })
     );

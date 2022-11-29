@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'update-restaurant/:id',
     loadChildren: () => import('./admin-pages/update-restaurant/update-restaurant.module').then( m => m.UpdateRestaurantPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   }
 ];
 

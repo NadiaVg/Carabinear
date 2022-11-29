@@ -9,7 +9,6 @@ import { Login1PageRoutingModule } from './login1-routing.module';
 import { Login1Page } from './login1.page';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from 'src/app/components/menu/menu.component';
-import { LoginCardComponent } from 'src/app/components/login-card/login-card.component';
 import { ButtonComponent } from 'src/app/components/button/button.component';
 import { ContactComponent } from 'src/app/components/contact/contact.component';
 import { LogoFooterComponent } from 'src/app/components/logo-footer/logo-footer.component';

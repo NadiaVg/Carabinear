@@ -3,18 +3,35 @@ import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/htt
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Restaurant } from '../interfaces/restaurant';
+import { Storage } from '@ionic/storage';
 @Injectable({
   providedIn: 'root'
 })
 export class RestaurantService {
+
+  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:8080';
+
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
 
   endPoint = "http://localhost:8080/api/restaurants"
  
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private  storage:  Storage) { }
+  private getOptions(token){
 
+    let bearerAccess = 'Bearer ' + token;
+
+    let options = {
+      headers: {
+        'Authorization' : bearerAccess,
+        'Content-Type' : 'application/x-www-form-urlencoded',
+      }
+      , withCredentials: true
+    };
+
+    return options;
+  }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
@@ -65,5 +82,11 @@ export class RestaurantService {
     data.append("file", blob);
 
     return this.httpClient.put(this.endPoint + '/' + id, data)
+  }
+
+  getUserRestaurants(token) {
+    let myOptions = this.getOptions(token);
+    console.log(myOptions)
+    return this.httpClient.get(`${this.AUTH_SERVER_ADDRESS}/api/restaurants`, myOptions);
   }
 }

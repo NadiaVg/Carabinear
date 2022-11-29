@@ -10,7 +10,7 @@ import { Storage } from '@ionic/storage';
 })
 export class UserService {
 
-  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:4000';
+  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:8080';
 
   constructor(private  httpClient:  HttpClient, private  storage:  Storage) { }
 
